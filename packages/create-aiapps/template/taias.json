@@ -1,0 +1,5 @@
+{
+  "$schema": "https://assets.taias.xyz/taias.json",
+  "installCommand": "npm install",
+  "startCommand": "npm run --silent start"
+}

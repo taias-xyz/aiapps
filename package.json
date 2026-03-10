@@ -1,0 +1,35 @@
+{
+  "name": "@taias/aiapps-monorepo",
+  "version": "0.0.0",
+  "description": "aiapps is a framework for building ChatGPT and MCP Apps",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm --filter @taias/aiapps build && pnpm --filter aiapps build && pnpm --filter @taias/aiapps-devtools build && pnpm --filter create-aiapps build",
+    "test": "pnpm --filter \"./packages/*\" test",
+    "format": "pnpm --filter \"./packages/*\" format",
+    "test:unit": "pnpm --filter \"./packages/*\" test:unit",
+    "test:type": "pnpm -r test:type",
+    "test:format": "pnpm --filter \"./packages/*\" test:format",
+    "bump": "node scripts/bump.js && pnpm i"
+  },
+  "keywords": [
+    "chatgpt",
+    "app",
+    "ai",
+    "aiapps",
+    "mcp",
+    "claude"
+  ],
+  "author": "Taias",
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.4",
+    "@total-typescript/tsconfig": "^1.0.4",
+    "@types/node": "^24.10.15",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "pnpm@10.30.3",
+  "engines": {
+    "node": ">=24.14.0"
+  }
+}

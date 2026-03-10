@@ -1,0 +1,43 @@
+{
+  "name": "aiapps",
+  "version": "0.0.0",
+  "description": "AI Apps is a framework for building ChatGPT and MCP Apps",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/taias-xyz/aiapps.git"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./tsconfig": "./dist/tsconfig.js",
+    "./tsconfig.json": "./dist/tsconfig.js",
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "default": "./dist/server.js"
+    },
+    "./web": {
+      "types": "./dist/web.d.ts",
+      "default": "./dist/web.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "chatgpt",
+    "app",
+    "ai",
+    "aiapps",
+    "mcp"
+  ],
+  "author": "Taias",
+  "license": "MIT",
+  "dependencies": {
+    "@taias/aiapps": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

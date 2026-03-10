@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "group:allNonMajor",
+    ":disablePeerDependencies"
+  ],
+  "prConcurrentLimit": 5,
+  "timezone": "Europe/Paris",
+  "rangeStrategy": "bump"
+}

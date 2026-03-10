@@ -1,0 +1,4 @@
+packages:
+  - "packages/*"
+  - "packages/create-aiapps/template"
+  - "examples/*"

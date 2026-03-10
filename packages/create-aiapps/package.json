@@ -1,0 +1,36 @@
+{
+  "name": "create-aiapps",
+  "version": "0.0.0",
+  "type": "module",
+  "license": "MIT",
+  "author": "Taias",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/taias-xyz/aiapps.git"
+  },
+  "bin": {
+    "create-aiapps": "index.js"
+  },
+  "files": [
+    "index.js",
+    "dist",
+    "template"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "pnpm run test:unit && pnpm run test:type && pnpm run test:format",
+    "test:unit": "vitest run",
+    "test:type": "tsc --noEmit",
+    "test:format": "biome ci",
+    "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {
+    "@clack/prompts": "^1.0.1",
+    "giget": "^3.1.2",
+    "mri": "^1.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  }
+}

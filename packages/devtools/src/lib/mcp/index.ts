@@ -1,0 +1,190 @@
+import {
+  auth,
+  discoverOAuthProtectedResourceMetadata,
+  UnauthorizedError,
+} from "@modelcontextprotocol/sdk/client/auth.js";
+import type { Tool } from "@modelcontextprotocol/sdk/types.js";
+import { useMutation, useSuspenseQuery } from "@tanstack/react-query";
+import type { AppsSdkContext, CallToolArgs } from "aiapps/web";
+import { useAuthStore } from "@/lib/auth-store.js";
+import { useStore } from "@/lib/store.js";
+import { useSelectedToolName } from "../nuqs.js";
+import { queryClient } from "../query-client.js";
+import { BrowserOAuthProvider } from "./browser-oauth-provider.js";
+import { McpClient } from "./client.js";
+
+const client = new McpClient();
+let currentAuthProvider: BrowserOAuthProvider | null = null;
+
+const getServerUrl = () => {
+  return `${window.location.origin}/mcp`;
+};
+
+export async function connectToServer(): Promise<void> {
+  const serverUrl = getServerUrl();
+  const { setStatus, setRequiresAuth, setError } = useAuthStore.getState();
+  setStatus("connecting");
+  setError(null);
+
+  await client.close();
+
+  let requiresAuth = false;
+
+  try {
+    const resourceMetadata =
+      await discoverOAuthProtectedResourceMetadata(serverUrl);
+    if (resourceMetadata?.authorization_servers?.length) {
+      requiresAuth = true;
+    }
+  } catch {
+    // 404 or network error means no OAuth required
+  }
+
+  setRequiresAuth(requiresAuth);
+
+  try {
+    if (requiresAuth) {
+      currentAuthProvider = new BrowserOAuthProvider();
+      await client.connect(serverUrl, currentAuthProvider);
+    } else {
+      currentAuthProvider = null;
+      await client.connect(serverUrl);
+    }
+    setStatus("authenticated");
+    queryClient.invalidateQueries({ queryKey: ["list-tools"] });
+  } catch (error) {
+    if (error instanceof UnauthorizedError) {
+      setStatus("unauthenticated");
+      return;
+    }
+    setStatus("error");
+    setError(error instanceof Error ? error.message : "Connection failed");
+  }
+}
+
+export async function finishOAuthCallback(code: string): Promise<void> {
+  const serverUrl = getServerUrl();
+  const provider = new BrowserOAuthProvider();
+  await auth(provider, {
+    serverUrl: serverUrl,
+    authorizationCode: code,
+  });
+  await connectToServer();
+}
+
+export async function logout(): Promise<void> {
+  currentAuthProvider?.invalidateCredentials("all");
+  currentAuthProvider = null;
+  await client.close();
+  useAuthStore.getState().reset();
+  queryClient.invalidateQueries({ queryKey: ["list-tools"] });
+}
+
+const defaultOpenaiObject: AppsSdkContext = {
+  theme: "light",
+  userAgent: {
+    device: { type: "desktop" },
+    capabilities: { hover: true, touch: false },
+  },
+  locale: "en-US",
+  maxHeight: undefined,
+  displayMode: "inline",
+  safeArea: {
+    insets: {
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0,
+    },
+  },
+  toolInput: {},
+  toolOutput: null,
+  toolResponseMetadata: null,
+  view: { mode: "inline" },
+  widgetState: null,
+};
+
+export const useSuspenseTools = () => {
+  const { data } = useSuspenseQuery<Tool[]>({
+    queryKey: ["list-tools"],
+    queryFn: () => client.listTools(),
+  });
+  return data;
+};
+
+export const useServerInfo = () => {
+  const status = useAuthStore((s) => s.status);
+  if (status !== "authenticated") {
+    return undefined;
+  }
+  return client.getServerInfo();
+};
+
+export const useCallTool = () => {
+  const { setToolData } = useStore();
+
+  return useMutation({
+    mutationFn: async ({
+      toolName,
+      args,
+    }: {
+      toolName: string;
+      args: CallToolArgs;
+    }) => {
+      setToolData(toolName, {
+        input: args ?? {},
+        response: undefined,
+        openaiRef: null,
+        openaiLogs: [],
+        openaiObject: null,
+        openInAppUrl: null,
+      });
+      const response = await client.callTool(toolName, args);
+      setToolData(toolName, {
+        input: args ?? {},
+        response,
+        openaiRef: null,
+        openaiLogs: [],
+        openaiObject: {
+          ...defaultOpenaiObject,
+          toolInput: args ?? {},
+          toolOutput: response.structuredContent,
+          toolResponseMetadata: response.meta ?? null,
+          widgetState: null,
+        },
+        openInAppUrl: null,
+      });
+      return response;
+    },
+  });
+};
+
+export const useSelectedToolOrNull = () => {
+  const [selectedTool] = useSelectedToolName();
+  const tools = useSuspenseTools();
+
+  return tools.find((t) => t.name === selectedTool) ?? null;
+};
+
+export const useSelectedTool = () => {
+  const tool = useSelectedToolOrNull();
+  if (!tool) {
+    throw new Error("No tool is currently selected");
+  }
+  return tool;
+};
+
+export const useSuspenseResource = (uri?: string) => {
+  return useSuspenseQuery({
+    queryKey: ["resource", uri],
+    queryFn: async () => {
+      if (!uri) {
+        throw new Error("Resource URI is required");
+      }
+      const resource = await client.readResource(uri);
+      return resource;
+    },
+  });
+};
+
+export default client;

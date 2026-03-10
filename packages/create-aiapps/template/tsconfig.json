@@ -1,0 +1,9 @@
+{
+  "extends": "aiapps/tsconfig",
+
+  "compilerOptions": {
+    "outDir": "dist"
+  },
+
+  "include": ["server/src", "web/src"]
+}

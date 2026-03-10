@@ -1,0 +1,17 @@
+node_modules
+dist
+*.tsbuildinfo
+.env
+/local
+.DS_Store
+.claude/
+.vscode/
+CLAUDE.md
+.reference/
+
+# WIP
+README.md
+CONTRIBUTING.md
+examples/
+skills/
+packages/create-aiapps/template/README.md

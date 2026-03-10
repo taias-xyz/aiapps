@@ -1,0 +1,32 @@
+{
+  "name": "apps-sdk-template",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Taias MCP Server Template",
+  "type": "module",
+  "scripts": {
+    "dev": "aiapps dev",
+    "build": "aiapps build",
+    "start": "aiapps start",
+    "deploy": "taias deploy"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "aiapps": "workspace:*",
+    "vite": "^7.3.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@taias/aiapps-devtools": "workspace:*",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.4",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=24.14.0"
+  }
+}
