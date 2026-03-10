@@ -1,4 +1,3 @@
-import { assign, cloneDeep } from "lodash-es";
 import type {
   AppsSdkContext,
   AppsSdkMethods,
@@ -8,10 +7,10 @@ import type {
   RequestDisplayMode,
   UnknownObject,
 } from "aiapps/web";
+import { SET_GLOBALS_EVENT_TYPE, SetGlobalsEvent } from "aiapps/web";
+import { assign, cloneDeep } from "lodash-es";
 
 type OpenAIWidgetState = { modelContent: Record<string, unknown> };
-
-import { SET_GLOBALS_EVENT_TYPE, SetGlobalsEvent } from "aiapps/web";
 
 function createOpenaiMethods(
   openai: AppsSdkContext & AppsSdkMethods,

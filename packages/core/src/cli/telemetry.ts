@@ -5,7 +5,7 @@ import type { Hook } from "@oclif/core";
 import ci from "ci-info";
 import { PostHog } from "posthog-node";
 
-const POSTHOG_API_KEY = "TODO_REPLACE_WITH_TAIAS_POSTHOG_API_KEY";
+const POSTHOG_API_KEY = "phc_YaIDjAu0E2Lnj0P1TDj49LAs2Ct8LFTOk9hiGBpyVOf";
 const POSTHOG_HOST = "https://us.i.posthog.com";
 
 const ENV_TELEMETRY_DISABLED = "AIAPPS_TELEMETRY_DISABLED";
@@ -89,7 +89,6 @@ function getGlobalConfig(): GlobalConfig {
 }
 
 export function isEnabled(): boolean {
-  return false;
   if (
     process.env[ENV_TELEMETRY_DISABLED] === "1" ||
     process.env[ENV_TELEMETRY_DISABLED]?.toLowerCase() === "true"

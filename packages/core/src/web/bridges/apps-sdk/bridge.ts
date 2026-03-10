@@ -9,10 +9,7 @@ export class AppsSdkBridge implements Bridge<AppsSdkContext> {
   private static instance: AppsSdkBridge | null = null;
 
   public static getInstance(): AppsSdkBridge {
-    if (
-      window.aiapps.hostType !== "apps-sdk" ||
-      window.openai === undefined
-    ) {
+    if (window.aiapps.hostType !== "apps-sdk" || window.openai === undefined) {
       throw new Error(
         "Apps SDK Bridge can only be used in the apps-sdk runtime",
       );

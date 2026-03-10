@@ -23,10 +23,9 @@ export default class TelemetryDisable extends Command {
         </Box>
         <Box marginTop={1}>
           <Text color="gray">
-            AI Apps never collects Personally Identifiable Information (PII).
-            If you'd like to help us improve AI Apps by allowing anonymous CLI
-            usage data, please reenable telemetry with: aiapps telemetry
-            enable
+            AI Apps never collects Personally Identifiable Information (PII). If
+            you'd like to help us improve AI Apps by allowing anonymous CLI
+            usage data, please reenable telemetry with: aiapps telemetry enable
           </Text>
         </Box>
       </Box>

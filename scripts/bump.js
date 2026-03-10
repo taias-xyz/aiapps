@@ -40,8 +40,12 @@ const devtoolsRange = devtoolsVersion ? `>=${devtoolsVersion} <1.0.0` : null;
 const taiasRange = taiasVersion ? `^${taiasVersion}` : null;
 
 console.log(`aiapps:               ${aiappsRange}`);
-if (devtoolsRange) console.log(`@taias/aiapps-devtools: ${devtoolsRange}`);
-if (taiasRange) console.log(`taias:                ${taiasRange}`);
+if (devtoolsRange) {
+  console.log(`@taias/aiapps-devtools: ${devtoolsRange}`);
+}
+if (taiasRange) {
+  console.log(`taias:                ${taiasRange}`);
+}
 
 // Find all example package.json files dynamically
 const exampleTargets = [];
