@@ -1,7 +1,7 @@
 {
   "name": "@taias/aiapps",
   "version": "0.0.0",
-  "description": "The fullstack TypeScript framework for building ChatGPT and MCP Apps",
+  "description": "AI Apps is a framework for building ChatGPT and MCP Apps",
   "repository": {
     "type": "git",
     "url": "https://github.com/taias-xyz/aiapps.git"
@@ -25,7 +25,6 @@
     }
   },
   "scripts": {
-    "prepublishOnly": "shx cp ../../README.md ./README.md",
     "build": "shx rm -rf dist && tsc && pnpm run build:templates",
     "build:templates": "cp -r src/server/templates dist/server/",
     "format": "biome check --write --error-on-warnings",
@@ -38,7 +37,8 @@
     "chatgpt",
     "app",
     "ai",
-    "aiapps"
+    "aiapps",
+    "mcp"
   ],
   "author": "Taias",
   "license": "MIT",
