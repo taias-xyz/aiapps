@@ -168,8 +168,8 @@ importers:
         specifier: ^1.27.1
         version: 1.27.1(zod@4.3.6)
       aiapps:
-        specifier: '>=0.1.4 <1.0.0'
-        version: 0.1.4(@modelcontextprotocol/sdk@1.27.1(zod@4.3.6))(@taias/aiapps-devtools@0.1.4)(@types/react@19.2.14)(immer@9.0.21)(nodemon@3.1.11)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(vite@7.3.1(@types/node@25.2.3)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))
+        specifier: '>=0.1.5 <1.0.0'
+        version: 0.1.5(@modelcontextprotocol/sdk@1.27.1(zod@4.3.6))(@taias/aiapps-devtools@0.1.5)(@types/react@19.2.14)(immer@9.0.21)(nodemon@3.1.11)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(vite@7.3.1(@types/node@25.2.3)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))
       react:
         specifier: ^19.2.4
         version: 19.2.4
@@ -184,8 +184,8 @@ importers:
         version: 4.3.6
     devDependencies:
       '@taias/aiapps-devtools':
-        specifier: '>=0.1.4 <1.0.0'
-        version: 0.1.4
+        specifier: '>=0.1.5 <1.0.0'
+        version: 0.1.5
       '@types/react':
         specifier: ^19.2.14
         version: 19.2.14
@@ -1670,15 +1670,15 @@ packages:
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
-  '@taias/aiapps-devtools@0.1.4':
-    resolution: {integrity: sha512-CEmFn6rvJD3RXj59KFk6hA+3ROO6Wm40stJedJo6m1ZZ9v7R2MDy4SKA1UcGkg1Kmq+zgKsycFY9llo9YGxQzA==}
+  '@taias/aiapps-devtools@0.1.5':
+    resolution: {integrity: sha512-9/AWZKxqk+W/YuARIBtAplEgC6rjplVqdtUThSUSZkVwtywK0g4/2KQZFe8w0rZeEnvLGxHcWDrGXiMFx22XHw==}
 
-  '@taias/aiapps@0.1.4':
-    resolution: {integrity: sha512-I2SjgF3L8K5k75uTiWsE6UAN9DgK7oLyOvqjnvOs3Ks7rYY0MNjtuD6qqVLvyo2l0qpV4DQqtUYuYHV3NuluPg==}
+  '@taias/aiapps@0.1.5':
+    resolution: {integrity: sha512-pciw4XMawwkjH/kcIMMni9lU9bLK0/cQt809yroJg9bREGL3w0/NtgH2lahQUXvRQnQ6pW/bEWyRD1vH3Dbz7A==}
     hasBin: true
     peerDependencies:
       '@modelcontextprotocol/sdk': '>=1.0.0'
-      '@taias/aiapps-devtools': 0.1.4
+      '@taias/aiapps-devtools': 0.1.5
       nodemon: '>=3.0.0'
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
@@ -1996,8 +1996,8 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  aiapps@0.1.4:
-    resolution: {integrity: sha512-iBzPzhAkYC0qA0Eml9F9ev9dKCqMHBn5rdMdyPiu3747zAwJrOYVd/HK5obY7BRLmUkw15sHwAk7s/BNemGCmw==}
+  aiapps@0.1.5:
+    resolution: {integrity: sha512-h1lTbJPYb40+23ZhXD3mrnyrFMThUMapFJfsBrOqFNtcw27lcLw49Pb8e6DdSJkByc80d+nf2wp4/CZzLDu7NA==}
 
   ajv-formats@2.1.1:
     resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
@@ -5781,19 +5781,19 @@ snapshots:
 
   '@standard-schema/spec@1.1.0': {}
 
-  '@taias/aiapps-devtools@0.1.4':
+  '@taias/aiapps-devtools@0.1.5':
     dependencies:
       cors: 2.8.6
       express: 5.2.1
     transitivePeerDependencies:
       - supports-color
 
-  '@taias/aiapps@0.1.4(@modelcontextprotocol/sdk@1.27.1(zod@4.3.6))(@taias/aiapps-devtools@0.1.4)(@types/react@19.2.14)(immer@9.0.21)(nodemon@3.1.11)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(vite@7.3.1(@types/node@25.2.3)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))':
+  '@taias/aiapps@0.1.5(@modelcontextprotocol/sdk@1.27.1(zod@4.3.6))(@taias/aiapps-devtools@0.1.5)(@types/react@19.2.14)(immer@9.0.21)(nodemon@3.1.11)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(vite@7.3.1(@types/node@25.2.3)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))':
     dependencies:
       '@babel/core': 7.29.0
       '@modelcontextprotocol/sdk': 1.27.1(zod@4.3.6)
       '@oclif/core': 4.8.1
-      '@taias/aiapps-devtools': 0.1.4
+      '@taias/aiapps-devtools': 0.1.5
       ci-info: 4.4.0
       cors: 2.8.6
       dequal: 2.0.3
@@ -6159,9 +6159,9 @@ snapshots:
       screenfull: 5.2.0
       tslib: 2.8.1
 
-  aiapps@0.1.4(@modelcontextprotocol/sdk@1.27.1(zod@4.3.6))(@taias/aiapps-devtools@0.1.4)(@types/react@19.2.14)(immer@9.0.21)(nodemon@3.1.11)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(vite@7.3.1(@types/node@25.2.3)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)):
+  aiapps@0.1.5(@modelcontextprotocol/sdk@1.27.1(zod@4.3.6))(@taias/aiapps-devtools@0.1.5)(@types/react@19.2.14)(immer@9.0.21)(nodemon@3.1.11)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(vite@7.3.1(@types/node@25.2.3)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)):
     dependencies:
-      '@taias/aiapps': 0.1.4(@modelcontextprotocol/sdk@1.27.1(zod@4.3.6))(@taias/aiapps-devtools@0.1.4)(@types/react@19.2.14)(immer@9.0.21)(nodemon@3.1.11)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(vite@7.3.1(@types/node@25.2.3)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))
+      '@taias/aiapps': 0.1.5(@modelcontextprotocol/sdk@1.27.1(zod@4.3.6))(@taias/aiapps-devtools@0.1.5)(@types/react@19.2.14)(immer@9.0.21)(nodemon@3.1.11)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(vite@7.3.1(@types/node@25.2.3)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))
     transitivePeerDependencies:
       - '@modelcontextprotocol/sdk'
       - '@taias/aiapps-devtools'
