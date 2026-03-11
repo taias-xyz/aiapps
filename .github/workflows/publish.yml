@@ -88,6 +88,10 @@ jobs:
         working-directory: ./packages/devtools
         run: pnpm publish --tag ${{ steps.version.outputs.tag }} --access public --provenance --no-git-checks
 
+      - name: Wait for npm registry propagation
+        if: github.event_name == 'release'
+        run: sleep 30
+
       - name: Bump versions
         if: github.event_name == 'release'
         run: node scripts/bump.js ${{ steps.version.outputs.version }} && pnpm install --no-frozen-lockfile
