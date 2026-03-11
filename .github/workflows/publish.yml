@@ -10,7 +10,6 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  id-token: write
 
 jobs:
   publish:
@@ -74,19 +73,27 @@ jobs:
 
       - name: Publish @taias/aiapps to npm
         working-directory: ./packages/core
-        run: pnpm publish --tag ${{ steps.version.outputs.tag }} --access public --provenance --no-git-checks
+        run: pnpm publish --tag ${{ steps.version.outputs.tag }} --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
       - name: Publish aiapps (alias) to npm
         working-directory: ./packages/aiapps
-        run: pnpm publish --tag ${{ steps.version.outputs.tag }} --access public --provenance --no-git-checks
+        run: pnpm publish --tag ${{ steps.version.outputs.tag }} --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
       - name: Publish create-aiapps to npm
         working-directory: ./packages/create-aiapps
-        run: pnpm publish --tag ${{ steps.version.outputs.tag }} --access public --provenance --no-git-checks
+        run: pnpm publish --tag ${{ steps.version.outputs.tag }} --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
       - name: Publish @taias/aiapps-devtools to npm
         working-directory: ./packages/devtools
-        run: pnpm publish --tag ${{ steps.version.outputs.tag }} --access public --provenance --no-git-checks
+        run: pnpm publish --tag ${{ steps.version.outputs.tag }} --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
       - name: Bump versions
         if: github.event_name == 'release'
