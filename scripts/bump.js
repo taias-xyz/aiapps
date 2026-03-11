@@ -49,12 +49,15 @@ if (taiasRange) {
 
 // Find all example package.json files dynamically
 const exampleTargets = [];
-for (const dirEntry of readdirSync(join(rootDir, "examples"), {
-  withFileTypes: true,
-})) {
-  const packagePath = `examples/${dirEntry.name}/package.json`;
-  if (dirEntry.isDirectory() && existsSync(join(rootDir, packagePath))) {
-    exampleTargets.push(packagePath);
+const examplesDir = join(rootDir, "examples");
+if (existsSync(examplesDir)) {
+  for (const dirEntry of readdirSync(examplesDir, {
+    withFileTypes: true,
+  })) {
+    const packagePath = `examples/${dirEntry.name}/package.json`;
+    if (dirEntry.isDirectory() && existsSync(join(rootDir, packagePath))) {
+      exampleTargets.push(packagePath);
+    }
   }
 }
 
