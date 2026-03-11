@@ -168,8 +168,8 @@ importers:
         specifier: ^1.27.1
         version: 1.27.1(zod@4.3.6)
       aiapps:
-        specifier: workspace:*
-        version: link:../../aiapps
+        specifier: '>=0.1.4 <1.0.0'
+        version: 0.1.4(@modelcontextprotocol/sdk@1.27.1(zod@4.3.6))(@taias/aiapps-devtools@0.1.4)(@types/react@19.2.14)(immer@9.0.21)(nodemon@3.1.11)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(vite@7.3.1(@types/node@25.2.3)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))
       react:
         specifier: ^19.2.4
         version: 19.2.4
@@ -184,8 +184,8 @@ importers:
         version: 4.3.6
     devDependencies:
       '@taias/aiapps-devtools':
-        specifier: workspace:*
-        version: link:../../devtools
+        specifier: '>=0.1.4 <1.0.0'
+        version: 0.1.4
       '@types/react':
         specifier: ^19.2.14
         version: 19.2.14
@@ -1670,6 +1670,20 @@ packages:
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
+  '@taias/aiapps-devtools@0.1.4':
+    resolution: {integrity: sha512-CEmFn6rvJD3RXj59KFk6hA+3ROO6Wm40stJedJo6m1ZZ9v7R2MDy4SKA1UcGkg1Kmq+zgKsycFY9llo9YGxQzA==}
+
+  '@taias/aiapps@0.1.4':
+    resolution: {integrity: sha512-I2SjgF3L8K5k75uTiWsE6UAN9DgK7oLyOvqjnvOs3Ks7rYY0MNjtuD6qqVLvyo2l0qpV4DQqtUYuYHV3NuluPg==}
+    hasBin: true
+    peerDependencies:
+      '@modelcontextprotocol/sdk': '>=1.0.0'
+      '@taias/aiapps-devtools': 0.1.4
+      nodemon: '>=3.0.0'
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
+      vite: ^7.3.1
+
   '@tailwindcss/node@4.2.1':
     resolution: {integrity: sha512-jlx6sLk4EOwO6hHe1oCGm1Q4AN/s0rSrTTPBGPM0/RQ6Uylwq17FuU8IeJJKEjtc6K6O07zsvP+gDO6MMWo7pg==}
 
@@ -1981,6 +1995,9 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  aiapps@0.1.4:
+    resolution: {integrity: sha512-iBzPzhAkYC0qA0Eml9F9ev9dKCqMHBn5rdMdyPiu3747zAwJrOYVd/HK5obY7BRLmUkw15sHwAk7s/BNemGCmw==}
 
   ajv-formats@2.1.1:
     resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
@@ -5764,6 +5781,42 @@ snapshots:
 
   '@standard-schema/spec@1.1.0': {}
 
+  '@taias/aiapps-devtools@0.1.4':
+    dependencies:
+      cors: 2.8.6
+      express: 5.2.1
+    transitivePeerDependencies:
+      - supports-color
+
+  '@taias/aiapps@0.1.4(@modelcontextprotocol/sdk@1.27.1(zod@4.3.6))(@taias/aiapps-devtools@0.1.4)(@types/react@19.2.14)(immer@9.0.21)(nodemon@3.1.11)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(vite@7.3.1(@types/node@25.2.3)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))':
+    dependencies:
+      '@babel/core': 7.29.0
+      '@modelcontextprotocol/sdk': 1.27.1(zod@4.3.6)
+      '@oclif/core': 4.8.1
+      '@taias/aiapps-devtools': 0.1.4
+      ci-info: 4.4.0
+      cors: 2.8.6
+      dequal: 2.0.3
+      es-toolkit: 1.44.0
+      express: 5.2.1
+      handlebars: 4.7.8
+      ink: 6.8.0(@types/react@19.2.14)(react@19.2.4)
+      nodemon: 3.1.11
+      posthog-node: 5.26.0
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+      superjson: 2.2.6
+      vite: 7.3.1(@types/node@25.2.3)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)
+      zustand: 5.0.11(@types/react@19.2.14)(immer@9.0.21)(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))
+    transitivePeerDependencies:
+      - '@types/react'
+      - bufferutil
+      - immer
+      - react-devtools-core
+      - supports-color
+      - use-sync-external-store
+      - utf-8-validate
+
   '@tailwindcss/node@4.2.1':
     dependencies:
       '@jridgewell/remapping': 2.3.5
@@ -6105,6 +6158,24 @@ snapshots:
       resize-observer-polyfill: 1.5.1
       screenfull: 5.2.0
       tslib: 2.8.1
+
+  aiapps@0.1.4(@modelcontextprotocol/sdk@1.27.1(zod@4.3.6))(@taias/aiapps-devtools@0.1.4)(@types/react@19.2.14)(immer@9.0.21)(nodemon@3.1.11)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(vite@7.3.1(@types/node@25.2.3)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)):
+    dependencies:
+      '@taias/aiapps': 0.1.4(@modelcontextprotocol/sdk@1.27.1(zod@4.3.6))(@taias/aiapps-devtools@0.1.4)(@types/react@19.2.14)(immer@9.0.21)(nodemon@3.1.11)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(vite@7.3.1(@types/node@25.2.3)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))
+    transitivePeerDependencies:
+      - '@modelcontextprotocol/sdk'
+      - '@taias/aiapps-devtools'
+      - '@types/react'
+      - bufferutil
+      - immer
+      - nodemon
+      - react
+      - react-devtools-core
+      - react-dom
+      - supports-color
+      - use-sync-external-store
+      - utf-8-validate
+      - vite
 
   ajv-formats@2.1.1(ajv@8.17.1):
     optionalDependencies:
@@ -6969,6 +7040,40 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
+  ink@6.8.0(@types/react@19.2.14)(react@19.2.4):
+    dependencies:
+      '@alcalzone/ansi-tokenize': 0.2.5
+      ansi-escapes: 7.3.0
+      ansi-styles: 6.2.3
+      auto-bind: 5.0.1
+      chalk: 5.6.2
+      cli-boxes: 3.0.0
+      cli-cursor: 4.0.0
+      cli-truncate: 5.1.1
+      code-excerpt: 4.0.0
+      es-toolkit: 1.44.0
+      indent-string: 5.0.0
+      is-in-ci: 2.0.0
+      patch-console: 2.0.0
+      react: 19.2.4
+      react-reconciler: 0.33.0(react@19.2.4)
+      scheduler: 0.27.0
+      signal-exit: 3.0.7
+      slice-ansi: 8.0.0
+      stack-utils: 2.0.6
+      string-width: 8.2.0
+      terminal-size: 4.0.1
+      type-fest: 5.4.4
+      widest-line: 6.0.0
+      wrap-ansi: 9.0.2
+      ws: 8.18.3
+      yoga-layout: 3.2.1
+    optionalDependencies:
+      '@types/react': 19.2.14
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
   interpret@1.4.0: {}
 
   intersection-observer@0.12.2: {}
@@ -7629,6 +7734,11 @@ snapshots:
   react-reconciler@0.33.0(react@19.2.3):
     dependencies:
       react: 19.2.3
+      scheduler: 0.27.0
+
+  react-reconciler@0.33.0(react@19.2.4):
+    dependencies:
+      react: 19.2.4
       scheduler: 0.27.0
 
   react-refresh@0.18.0: {}
