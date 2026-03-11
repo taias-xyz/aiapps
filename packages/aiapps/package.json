@@ -1,6 +1,6 @@
 {
   "name": "aiapps",
-  "version": "0.0.0",
+  "version": "0.1.4",
   "description": "AI Apps is a framework for building ChatGPT and MCP Apps",
   "repository": {
     "type": "git",
@@ -8,7 +8,8 @@
   },
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+    "tsconfig.base.json"
   ],
   "exports": {
     "./tsconfig": "./tsconfig.base.json",
@@ -22,10 +23,6 @@
       "default": "./dist/web.js"
     }
   },
-  "files": [
-    "dist",
-    "tsconfig.base.json"
-  ],
   "scripts": {
     "build": "tsc && cp ../core/tsconfig.base.json ./tsconfig.base.json"
   },

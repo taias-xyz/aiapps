@@ -1,6 +1,6 @@
 {
   "name": "@taias/aiapps",
-  "version": "0.0.0",
+  "version": "0.1.4",
   "description": "AI Apps is a framework for building ChatGPT and MCP Apps",
   "repository": {
     "type": "git",
