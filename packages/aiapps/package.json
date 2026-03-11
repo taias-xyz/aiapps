@@ -1,6 +1,6 @@
 {
   "name": "aiapps",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "AI Apps is a framework for building ChatGPT and MCP Apps",
   "repository": {
     "type": "git",
