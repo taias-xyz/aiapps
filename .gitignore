@@ -4,6 +4,7 @@ dist
 .env
 /local
 .DS_Store
+.pnpm-store/
 .claude/
 .vscode/
 CLAUDE.md
